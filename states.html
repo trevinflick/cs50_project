@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {
+    text-align: center;
+}
+p.sansserif {
+    font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+	<h1> Who's Hiring Physics B.S?</h>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['geochart']}]}"></script>
+    <script type="text/javascript">
+     google.setOnLoadCallback(drawRegionsMap);
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['State', 'Companies'],
+            ['Alabama', 11],
+            ['Alaska', 3],
+            ['Arizona', 12],
+            ['Arkansas', 5],
+            ['California', 114],
+            ['Colorado', 21],
+            ['Conneticut', 14],
+            ['District of Columbia', 19],
+            ['Delaware', 0],
+            ['Florida', 15],
+            ['Georgia', 12],
+            ['Hawaii', 5],
+            ['Idaho', 8],
+            ['Illinois', 38],
+            ['Indiana', 11],
+            ['Iowa', 5],
+            ['Kansas', 8],
+            ['Kentucky', 10],
+            ['Louisiana', 10],
+            ['Maine', 3],
+            ['Maryland', 41],
+            ['Massachusetts', 60],
+            ['Michigan', 22],
+            ['Minnesota', 46],
+            ['Mississippi', 0],
+            ['Missouri', 8],
+            ['Montana', 0],
+            ['Nebraska', 8],
+            ['Nevada', 0],
+            ['New Hampshire', 6],
+            ['New Jersey', 16],
+            ['New Mexico', 5],
+            ['New York', 71],
+            ['North Carolina', 22],
+            ['North Dakota', 0],
+            ['Ohio', 28],
+            ['Oklahoma', 7],
+            ['Oregon', 21],
+            ['Pennsylvania', 23],
+            ['Rhode Island', 3],
+            ['South Carolina', 9],
+            ['South Dakota', 0],
+            ['Tennessee', 10],
+            ['Texas', 44],
+            ['Utah', 15],
+            ['Vermont', 0],
+            ['Virginia', 34],
+            ['Washington', 35],
+            ['West Virginia', 0],
+            ['Wisconsin', 18],
+            ['Wyoming', 3]
+        ]);
+         
+
+        var options = {
+          region: 'US', // United States
+          colorAxis: {colors: ['#deebf7', '#3182bd']},
+          backgroundColor: '#ffffff',
+          datalessRegionColor: '#ffffff',
+          defaultColor: '#f5f5f5',
+        };
+        options['resolution'] = 'provinces';
+          
+        
+    var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
+    function myClickHandler(){
+        var selection = chart.getSelection();
+        var selectionIdx = chart.getSelection()[0].row;
+        var stateName = data.getValue(selectionIdx, 0);
+        window.open('file:///Users/trevin/Desktop/index.html#' + stateName);
+    }
+    
+    google.visualization.events.addListener(chart, 'select', myClickHandler);
+    
+          chart.draw(data, options);
+          
+
+};
+
+    </script>
+  </head>
+  <body>
+    <div id="geochart-colors" style="width: 700px; height: 433px;"></div>
+  </body>
+</html>
